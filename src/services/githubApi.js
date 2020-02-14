@@ -8,5 +8,5 @@ const request = username => {
     });
 };
 
-export const getUser = () => request('/username');
-export const getUserRepo = repo => request(`/username/${repo}`);
+export const getUsername = (username) => request(username);
+export const getUserRepo = repos => request(`/username/${repos}`);
