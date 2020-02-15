@@ -7,12 +7,12 @@ import reducer from './githubReducers';
 describe('user reducer', () => {
   it('handles the fetch user loading action', () => {
     const action = { type: FETCH_USERNAME_LOADING };
-    const initialState = { loading: false, user: [] };
+    const initialState = { loading: false, username: null };
     const newState = reducer(initialState, action);
 
     expect(newState).toEqual({
       loading: true,
-      user: []
+      username: null
     });
   });
 
@@ -34,7 +34,7 @@ describe('user reducer', () => {
 
     const initialState = {
       loading: true,
-      user: [
+      username: [
         {
           avatar_url: 'https://avatars3.githubusercontent.com/u/54095031?v=4',
           html_url: 'https://github.com/nikkisato',
@@ -51,7 +51,7 @@ describe('user reducer', () => {
 
     expect(newState).toEqual({
       loading: false,
-      user: [
+      username: [
         {
           avatar_url: 'https://avatars3.githubusercontent.com/u/54095031?v=4',
           html_url: 'https://github.com/nikkisato',
