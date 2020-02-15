@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import GithubItem from './GithubItem';
+import Loading from '../loading/Loading';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUsername } from '../../actions/githubActions';
+import { getUser, isLoadingUser } from '../../selectors/githubSelectors';
+const GithubPage = () => {
+  const dispatch = useDispatch();
+  const loading = useSelector(isLoadingUser);
+  const username = useSelector(getUser);
 
-const GithubPage = ({}) => (
-  <>
-    <section>
-      <input type='text' />
-    </section>
-  </>
-);
+  useEffect(() => {
+    dispatch(fetchUsername());
+  }, []);
+
+  if (loading) return <Loading />;
+//user match params
+  return (
+    <>
+      <section>
+        <input type='text' onChange={handleChange} />
+        <GithubItem />
+      </section>
+    </>
+  );
+};
 
 GithubPage.propTypes = {
   //
