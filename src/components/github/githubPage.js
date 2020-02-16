@@ -5,6 +5,9 @@ import Loading from '../loading/Loading';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsername } from '../../actions/githubActions';
 import { getUser, isLoadingUser } from '../../selectors/githubSelectors';
+import GithubSearch from './GithubSearch';
+import { useUsername } from '../../hooks/username';
+
 const GithubPage = () => {
   const dispatch = useDispatch();
   const loading = useSelector(isLoadingUser);
@@ -14,12 +17,12 @@ const GithubPage = () => {
     dispatch(fetchUsername());
   }, []);
 
-  if (loading) return <Loading />;
-//user match params
+  if(loading) return <Loading />;
+  //user match params
   return (
     <>
       <section>
-        <input type='text' onChange={handleChange} />
+        <GithubSearch />
         <GithubItem />
       </section>
     </>
