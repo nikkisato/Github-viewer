@@ -22,15 +22,13 @@ const GithubPage = () => {
   return (
     <>
       <section>
-        <GithubSearch />
+        <GithubSearch username={username}/>
         <GithubItem />
       </section>
     </>
   );
 };
 
-GithubPage.propTypes = {
-  //
-};
+
 
 export default GithubPage;
