@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsername } from '../../actions/githubActions';
+import PropTypes from 'prop-types';
 
 const GithubSearch = ({ searchTerm }) => {
-  const [username, setNewUsername] = useState('nikkisato');
+  const [username, setNewUsername] = useState('');
   const dispatch = useDispatch();
 
   const searchUser = event => {
@@ -28,6 +29,10 @@ const GithubSearch = ({ searchTerm }) => {
       </section>
     </>
   );
+};
+
+GithubSearch.propTypes = {
+  searchTerm: PropTypes.string.isRequired
 };
 
 export default GithubSearch;

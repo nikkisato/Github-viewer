@@ -4,12 +4,12 @@ import {
 } from '../actions/githubActions';
 
 const initialState = {
-  username: null,
-  loading: true
+  loading: true,
+  username: null
 };
 
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
+  switch(action.type) {
     case FETCH_USERNAME_LOADING:
       return { ...state, loading: true };
     case FETCH_USERNAME:

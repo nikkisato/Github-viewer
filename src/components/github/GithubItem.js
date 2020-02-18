@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Github = ({ name, avatar_url, bio, followers, following }) => (
+const Github = ({ name, avatar_url, bio, followers, following, repos_url }) => (
   <>
     <section>
-      {/* <div
-        style={{
-          width: '20vw',
-          height: '20vh',
-          background: URL(`${avatar_url}`)
-        }}
-      ></div> */}
       <img src={avatar_url}></img>
       <h1>{name}</h1>
       <p>Bio: {bio}</p>
@@ -18,6 +11,9 @@ const Github = ({ name, avatar_url, bio, followers, following }) => (
       <p>Following: {following}</p>
       <a href='${html_url}'>
         <p>Link to Github</p>
+      </a>
+      <a href='${repos_url}'>
+        <p>Link to Repo</p>
       </a>
     </section>
   </>
@@ -27,8 +23,9 @@ Github.propTypes = {
   name: PropTypes.string.isRequired,
   avatar_url: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
-  followers: PropTypes.Number.isRequired,
-  following: PropTypes.Number.isRequired
+  followers: PropTypes.Number,
+  following: PropTypes.Number,
+  repos_url: PropTypes.string.isRequired
 };
 
 export default Github;

@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import GithubItem from './GithubItem';
 import Loading from '../loading/Loading';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsername } from '../../actions/githubActions';
 import { getUser, isLoadingUser } from '../../selectors/githubSelectors';
 import GithubSearch from './GithubSearch';
-import { useUsername } from '../../hooks/username';
+// import { useUsername } from '../../hooks/username';
 
 const GithubPage = () => {
   const dispatch = useDispatch();
@@ -21,14 +20,10 @@ const GithubPage = () => {
   //user match params
   return (
     <>
-      <section>
-        <GithubSearch username={username}/>
-        <GithubItem />
-      </section>
+      <GithubSearch username={username} />
+      <GithubItem />
     </>
   );
 };
-
-
 
 export default GithubPage;
