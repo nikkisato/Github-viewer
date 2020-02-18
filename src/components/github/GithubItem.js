@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Github = ({ name, avatar_url, bio, followers, following, repos_url }) => (
+const Github = ({ name, avatar_url, bio, followers, following }) => (
   <>
     <section>
       <img src={avatar_url}></img>
@@ -25,7 +25,6 @@ Github.propTypes = {
   bio: PropTypes.string.isRequired,
   followers: PropTypes.Number,
   following: PropTypes.Number,
-  repos_url: PropTypes.string.isRequired
 };
 
 export default Github;
