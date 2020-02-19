@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './GithubItem.css';
 
 const Github = ({
   user: { name, avatar_url, bio, followers, following, html_url }
@@ -8,15 +9,18 @@ const Github = ({
     <section>
       <img src={avatar_url}></img>
       <h1>{name}</h1>
-      <p>Bio: {bio}</p>
-      <p>Followers: {followers}</p>
-      <p>Following: {following}</p>
-      <a href='${html_url}'>
-        <p>Link to Github</p>
-      </a>
-      <a href='${repos_url}'>
-        <p>Link to Repo</p>
-      </a>
+      <p>
+        <b>Bio:</b> {bio}
+      </p>
+      <p>
+        <b>Followers:</b> {followers}
+      </p>
+      <p>
+        <b>Following: </b>
+        {following}
+      </p>
+      <p>{html_url}</p>
+      <a href='${html_url}'>{html_url}</a>
     </section>
   </>
 );

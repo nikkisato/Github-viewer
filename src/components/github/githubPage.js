@@ -4,6 +4,8 @@ import Loading from '../loading/Loading';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsername } from '../../actions/githubActions';
 import { getUser, isLoadingUser } from '../../selectors/githubSelectors';
+import Header from '../header/Header';
+import './GithubPage.css';
 
 const GithubPage = () => {
   const [username, setNewUsername] = useState('');
@@ -18,10 +20,11 @@ const GithubPage = () => {
 
   // loading ? (
   //   <Loading />
-  // ) 
+  // )
 
   return (
     <>
+      <Header />
       <form onSubmit={handleClick}>
         <input
           type='text'
